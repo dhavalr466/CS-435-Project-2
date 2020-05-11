@@ -6,8 +6,7 @@ class Graph:
         self.allNodes[nodeVal] = []
 
     def addUndirectedEdge(self, first, second):
-        if second not in self.allNodes[first]:
-            self.allNodes[first].append(second)
+        self.allNodes[first].append(second)
         if first not in self.allNodes[second]:
             self.allNodes[second].append(first)
 
