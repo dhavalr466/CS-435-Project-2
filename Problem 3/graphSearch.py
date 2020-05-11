@@ -6,7 +6,6 @@ class GraphSearch:
         return self.DFSUtil(graph, start, end, nodesVisited, path)
 
     def DFSUtil(self, graph, start, end, nodesVisited, path):
-        # visited[start] = True
         nodesVisited.add(start)
         path.append(start)
         if start == end:
@@ -16,8 +15,8 @@ class GraphSearch:
                 if node in nodesVisited:
                     continue
                 else:
-                    retrieve = self.DFSUtil(graph, node, end, nodesVisited, path)
-                    if bool(retrieve):
+                    nextNode = self.DFSUtil(graph, node, end, nodesVisited, path)
+                    if bool(nextNode):
                         return path
             return None
 
@@ -26,8 +25,7 @@ class GraphSearch:
         path = []
         if nodesVisited is None:
             nodesVisited = set()
-        stack = []
-        stack.append(start)
+        stack = [start]
         while len(stack):
             adjacent = stack.pop()
             path.append(adjacent)
@@ -42,7 +40,6 @@ class GraphSearch:
                         stack.append(node)
 
     def BFTRec(self, graph):
-        # tempGraph = GraphSearch()
         path = []
         nodesVisited = set()
         for node in graph.getAllNodes():
@@ -78,9 +75,9 @@ class GraphSearch:
                     adjacent = queue.pop(0)
                     path.append(adjacent)
                     nodesVisited.add(adjacent)
-                    for node1 in graph.allNodes[adjacent]:
-                        if node1 in nodesVisited:
+                    for neighbor in graph.allNodes[adjacent]:
+                        if neighbor in nodesVisited:
                             continue
                         else:
-                            queue.append(node1)
+                            queue.append(neighbor)
         return path
