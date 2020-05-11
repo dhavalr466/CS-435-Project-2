@@ -8,7 +8,7 @@ class Main:
     def createRandomUnweightedGraphIter(n):
         graph = Graph()
         visited = set()
-        for i in range(0, n, 1):
+        for i in range(n):
             graph.addNode(i)
 
         for first in graph.allNodes:
@@ -65,10 +65,10 @@ if __name__ == "__main__":
         "BFT-Rec: " + str(graphSearch.BFTRec(graph2)) + "\n"
         "BFT-Iter: " + str(graphSearch.BFTIter(graph2)) + "\n"
     )
-    #
-    # print(
-    #     "----------------BFT-Rec Linked List-------------" + "\n" +
-    #     str(graph3) + "\n" +
-    #     "----------------BFT-Iter Linked List-------------" + "\n" +
-    #     str(graph4) + "\n"
-    # )
+    
+    print(
+        "----------------BFT-Rec Linked List-------------" + "\n" +
+        str(graph3) + "\n" +
+        "----------------BFT-Iter Linked List-------------" + "\n" +
+        str(graph4) + "\n"
+    )
